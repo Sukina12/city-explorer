@@ -23,12 +23,13 @@
 
 ## Time Estimates
 
-Name of feature: ________________________________
 
-Estimate of time needed to complete: _____
+Name of feature: Lab6
 
-Start time: _____
+Estimate of time needed to complete:2 hours
 
-Finish time: _____
+Start time:10:00 pm
 
-Actual time needed to complete: _____
+Finish time: 2:00 am
+
+Actual time needed to complete:4 hours
