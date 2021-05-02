@@ -40,20 +40,22 @@ export class App extends React.Component {
           <button type='submit'> Explore ! </button>
         </form>
         <br />
-        <p>
+
+        {this.state.data ? <p>
           Welcome To {this.state.data.display_name}
-        </p>
-        <p id='p2'>
+        </p> : ''}
+        {this.state.data ? <p id='p2'>
           {this.state.data.display_name} located at {this.state.data.lat}by {this.state.data.lon}
-        </p>
+        </p>:''}
+       
         <br />
-        <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.d36871f015649f915282f374cff76628&q&center=${this.state.data.lat},${this.state.data.lon}&zoom=10`} alt='' />
+        {this.state.data ?  <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.d36871f015649f915282f374cff76628&q&center=${this.state.data.lat},${this.state.data.lon}&zoom=15`} alt='' />:''}
+       
         <br />
         <p>
           &copy; Code Fellows
         </p>
       </div>
-
 
     );
   }
