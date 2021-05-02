@@ -34,23 +34,19 @@ export class App extends React.Component {
         <form onSubmit={this.getPlace}>
           <label for='city name'>Where would you like to explore ? </label>
           <br />
-
           <input onChange={this.updateFormCity} type='text' placeholder='city name' />
           <br />
           <button type='submit'> Explore ! </button>
         </form>
         <br />
-
         {this.state.data ? <p>
           Welcome To {this.state.data.display_name}
         </p> : ''}
         {this.state.data ? <p id='p2'>
           {this.state.data.display_name} located at {this.state.data.lat}by {this.state.data.lon}
         </p>:''}
-       
         <br />
         {this.state.data ?  <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.d36871f015649f915282f374cff76628&q&center=${this.state.data.lat},${this.state.data.lon}&zoom=15`} alt='' />:''}
-       
         <br />
         <p>
           &copy; Code Fellows
