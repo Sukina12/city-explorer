@@ -23,12 +23,14 @@
 
 ## Time Estimates
 
-Name of feature:Lab6
+
+
+Name of feature: Lab6
 
 Estimate of time needed to complete:2 hours
 
 Start time:10:00 pm
 
-Finish time:1:30 am
+Finish time: 2:00 am
 
-Actual time needed to complete: 3.5 hours
+Actual time needed to complete:4 hours
