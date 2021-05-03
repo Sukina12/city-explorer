@@ -1,60 +1,69 @@
-import axios from 'axios';
 import React from 'react';
+import Header from './Components/Header';
+import Main from './Components/Main';
+import Footer from './Components/Footer';
+import axios from 'axios';
+
+
 
 export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formCity: ' ',
+      locationName: '',
       data: '',
-      show: false
+      show: true,
+      vision: false
     };
   }
-  getPlace = async (e) => {
+  getLocation = (e) => {
     e.preventDefault();
-    const url = `https://us1.locationiq.com/v1/search.php?key=pk.20fd835952f8a0a3b128564e5abe86b7&q=${this.state.formCity}&format=json`;
-
-    const request = await axios.get(url);
+    let place = e.target.value;
     this.setState({
-      data: request.data[0],
-      show: true
+      locationName: place
     });
   }
-
-  updateFormCity = (e) => {
-    this.setState({ formCity: e.target.value });
+  getData = async (e) => {
+    try {
+      e.preventDefault();
+      const locationApi = `https://us1.locationiq.com/v1/search.php?key=pk.a2a65c09040e2f28766f692614e18035&q=${this.state.locationName}&format=json`;
+      // const myApi = `${process.env.REACT_APP_HOST}/about`;
+      // const showApi = await axios.get(myApi);
+      const req = await axios.get(locationApi);
+      this.setState({
+        data: req.data[0]
+      });
+      this.setState({
+        vision: true
+      });
+    }
+    catch (error) {
+      this.setState({
+        show: false
+      });
+    }
   }
+  goBack = () => window.location.reload();
 
   render() {
     return (
       <div>
-        <h1>
-          City Explorer <span> Enter a location below to learn about the weather, resturants, movies, and more!</span>
-        </h1>
-        <form onSubmit={this.getPlace}>
-          <label for='city name'>Where would you like to explore ? </label>
-          <br />
-          <input onChange={this.updateFormCity} type='text' placeholder='city name' />
-          <br />
-          <button type='submit'> Explore ! </button>
-        </form>
-        <br />
-        {this.state.data ? <p>
-          Welcome To {this.state.data.display_name}
-        </p> : ''}
-        {this.state.data ? <p id='p2'>
-          {this.state.data.display_name} located at {this.state.data.lat}by {this.state.data.lon}
-        </p>:''}
-        <br />
-        {this.state.data ?<img src={`https://maps.locationiq.com/v3/staticmap?key=pk.d36871f015649f915282f374cff76628&q&center=${this.state.data.lat},${this.state.data.lon}&zoom=15`} alt='' />:''}
-        <br />
-        <p>
-          &copy; Code Fellows
-        </p>
+        <Header />
+        <Main
+          getLocation={this.getLocation}
+          getData={this.getData}
+          vision={this.state.vision}
+          data={this.state.data}
+          show={this.state.show}
+          goBack={this.goBack}
+        />
+        <Footer />
       </div>
-
     );
+
   }
+
 }
+
 
 export default App;
