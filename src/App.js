@@ -13,10 +13,11 @@ export class App extends React.Component {
       locationName: '',
       data: '',
       show: true,
-      vision: false
+      vision: false,
+      weatherData: false
     };
   }
-  getLocation = (e) => {
+  getLocation = async (e) => {
     e.preventDefault();
     let place = e.target.value;
     this.setState({
@@ -25,17 +26,26 @@ export class App extends React.Component {
   }
   getData = async (e) => {
     try {
+      // const pro= process.env.REACT_APP_SERVER;
+
       e.preventDefault();
-      const locationApi = `https://us1.locationiq.com/v1/search.php?key=pk.a2a65c09040e2f28766f692614e18035&q=${this.state.locationName}&format=json`;
-      // const myApi = `${process.env.REACT_APP_HOST}/about`;
-      // const showApi = await axios.get(myApi);
+      const key = process.env.REACT_APP_LOCATION_IQ_KEY;
+      const locationApi = `https://us1.locationiq.com/v1/search.php?key=${key}&q=${this.state.locationName}&format=json`;
       const req = await axios.get(locationApi);
       this.setState({
-        data: req.data[0]
-      });
-      this.setState({
+        data: req.data[0],
         vision: true
       });
+      const weatherUrl = `http://localhost:3060/weather`;
+      const weatherRequest = await axios.get(weatherUrl);
+
+      console.log(weatherRequest);
+      this.setState({
+        weatherData: weatherRequest.data,
+        vision: true,
+        show: true
+      });
+      console.log(this.state.weatherData);
     }
     catch (error) {
       this.setState({
@@ -56,6 +66,7 @@ export class App extends React.Component {
           data={this.state.data}
           show={this.state.show}
           goBack={this.goBack}
+          weatherData={this.state.weatherData}
         />
         <Footer />
       </div>
