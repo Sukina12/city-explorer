@@ -26,17 +26,18 @@ export class App extends React.Component {
   }
   getData = async (e) => {
     try {
-      // const pro= process.env.REACT_APP_SERVER;
+      
 
       e.preventDefault();
       const key = process.env.REACT_APP_LOCATION_IQ_KEY;
+      const pro= process.env.REACT_APP_SERVER;
       const locationApi = `https://us1.locationiq.com/v1/search.php?key=${key}&q=${this.state.locationName}&format=json`;
       const req = await axios.get(locationApi);
       this.setState({
         data: req.data[0],
         vision: true
       });
-      const weatherUrl = `http://localhost:3060/weather`;
+      const weatherUrl = `${pro}/weather`;
       const weatherRequest = await axios.get(weatherUrl);
 
       console.log(weatherRequest);
