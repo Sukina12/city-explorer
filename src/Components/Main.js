@@ -16,6 +16,7 @@ class Main extends React.Component {
             data={this.props.data}
             vision={this.props.vision}
             size={this.props.size}
+            weatherData={this.props.weatherData}
           />
         }
       </div>
