@@ -11,10 +11,15 @@ export class App extends React.Component {
     super(props);
     this.state = {
       locationName: '',
-      data: '',
+      data: {},
       show: true,
       vision: false,
-      weatherData: false
+      weatherData: false,
+      movieData: {},
+      apiURL: process.env.REACT_APP_LOCATION_SERVER,
+      apiKey: process.env.REACT_APP_LOCATION_IQ_KEY,
+      ownURL: process.env.REACT_APP_SERVER,
+
     };
   }
   getLocation = async (e) => {
@@ -26,18 +31,21 @@ export class App extends React.Component {
   }
   getData = async (e) => {
     try {
-      
+
 
       e.preventDefault();
-      const key = process.env.REACT_APP_LOCATION_IQ_KEY;
-      const pro= process.env.REACT_APP_SERVER;
-      const locationApi = `https://us1.locationiq.com/v1/search.php?key=${key}&q=${this.state.locationName}&format=json`;
+      const locationApi = `${this.state.apiURL}?key=${this.state.apiKey}&q=${this.state.locationName}&format=json`;
       const req = await axios.get(locationApi);
       this.setState({
         data: req.data[0],
         vision: true
       });
-      const weatherUrl = `${pro}/weather`;
+      // const movieUrl = `${this.state.ownURL}/movie?city=${this.state.locationName}`;
+      // const movieRequest = await axios.get(movieUrl);
+      // this.setState({
+      //   movieData: movieRequest.data,
+      // });
+      const weatherUrl = `${this.state.ownURL}/weather?lat=${this.state.data.lat}&lon=${this.state.data.lon}`;
       const weatherRequest = await axios.get(weatherUrl);
 
       console.log(weatherRequest);
@@ -55,7 +63,6 @@ export class App extends React.Component {
     }
   }
   goBack = () => window.location.reload();
-
   render() {
     return (
       <div>
@@ -68,6 +75,7 @@ export class App extends React.Component {
           show={this.state.show}
           goBack={this.goBack}
           weatherData={this.state.weatherData}
+          movieData={this.state.movieData}
         />
         <Footer />
       </div>
