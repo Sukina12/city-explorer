@@ -25,9 +25,6 @@
 
 
 ## Time Estimates
-
-
-
 Name of feature: Lab6
 
 Estimate of time needed to complete:2 hours
@@ -39,8 +36,35 @@ Finish time: 2:00 am
 Actual time needed to complete:4 hours
 
 **************************************************************************************************************************
-###  My partner is Abdallah Abu Khurma
+###  My partner was Abdallah Abu Khurma
 
 #### He and I did a review code.He shared with me the code he wrote and I looked at it.  I understood most of it and which I did not understand  Abdallah  helped me to understand it.
 
 #### So many use the state that I don't know what it means and how to use it. And also some functions that I do not understand what they do. But  Abdallah  helped me understand that which is not understood by me.
+
+Name of feature: Lab7
+
+Estimate of time needed to complete:3 hours
+
+Start time:10:00 pm
+
+Finish time: 3:00 am
+
+Actual time needed to complete:5 hours
+
+**************************************************************************************************************************
+###  My partner was Sa'ed Jabali
+
+#### He and I did a review code.He shared with me the code he wrote and I looked at it.  I understood most of it and which I did not understand Sa'ed  helped me to understand it.
+
+#### So many use the server API  that I don't know what it means and how to use it. And also some functions that I do not understand what they do. But  Sa'ed  helped me understand that which is not understood by me.
+
+Name of feature: Lab8
+
+Estimate of time needed to complete:3 hours
+
+Start time:10:45 pm
+
+Finish time:
+
+Actual time needed to complete:
