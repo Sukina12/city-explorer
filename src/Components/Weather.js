@@ -8,8 +8,6 @@ class Weather extends React.Component {
       this.props.weatherData.map(data => {
         console.log(this.props.weatherData);
         return (
-       
-
           <div>
             <Card style={{ width: '100rem' }}>
               <Card.Body>
