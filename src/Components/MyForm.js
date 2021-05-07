@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Info from './Info';
 import Map from './Map';
 import Weather from './Weather';
+import Movie from './Movie';
 
 class MyForm extends React.Component {
   render() {
@@ -30,6 +31,11 @@ class MyForm extends React.Component {
             {this.props.weatherData &&
               <Weather
                 weatherData={this.props.weatherData}
+              />
+            }
+            {this.props.movieData &&
+              <Movie
+                movieData={this.props.movieData}
               />
             }
           </div>
