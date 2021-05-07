@@ -8,7 +8,7 @@ class Movie extends React.Component {
         return (
           <div>
             <p>{data.title}</p>
-            {/* <img src={data.poster_path} alt={''}/> */}
+            <img src={`https://www.themoviedb.org/t/p/original/${data.img}`} alt=''/>
             <p>{data.description}</p>
           </div>
         );
