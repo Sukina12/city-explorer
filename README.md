@@ -79,3 +79,15 @@ Start time:10:00 pm
 Finish time: 12:00am am
 
 Actual time needed to complete: 2 hours and quarter
+
+***********************************************************************************
+Name of feature: Lab10
+
+Estimate of time needed to complete:1 hours
+
+Start time:1:00 am
+
+Finish time: 1:30am 
+
+Actual time needed to complete: half hour
+
