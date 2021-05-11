@@ -39,7 +39,7 @@ export class App extends React.Component {
         data: req.data[0],
         vision: true
       });
-      const weatherUrl = `${this.state.ownURL}/weather?lat=${this.state.data.lat}&lon=${this.state.data.lon}`;
+      const weatherUrl = `http://localhost:4000/weather?lat=${this.state.data.lat}&lon=${this.state.data.lon}`;
       const weatherRequest = await axios.get(weatherUrl);
 
       console.log(weatherRequest);
@@ -48,7 +48,7 @@ export class App extends React.Component {
         vision: true,
         show: true
       });
-      const movieUrl = `${this.state.ownURL}/movie?query=${this.state.locationName}`;
+      const movieUrl = `http://localhost:4000/movie?query=${this.state.locationName}`;
       const movieRequest = await axios.get(movieUrl);
       console.log(movieRequest);
       this.setState({
