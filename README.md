@@ -65,6 +65,17 @@ Estimate of time needed to complete:3 hours
 
 Start time:10:45 pm
 
-Finish time:
+Finish time: 2:00 am
 
-Actual time needed to complete:
+Actual time needed to complete: 3 hours and quarter
+
+*********************************************************************************
+Name of feature: Lab9
+
+Estimate of time needed to complete:1 hours
+
+Start time:10:00 pm
+
+Finish time: 12:00am am
+
+Actual time needed to complete: 2 hours and quarter
